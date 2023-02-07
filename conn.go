@@ -10,22 +10,20 @@ import (
 
 // Dial returns client and server side connections. The arguments
 // are only used to fullfill the net.Addr
-func Dial(network, address string) (clientRW *Conn, serverRW *Conn) {
+func Dial(network, address string) (conn *Conn, srvconn *Conn) {
 	fromServer, toClient := io.Pipe()
 	fromClient, toServer := io.Pipe()
 
-	clientRW = &Conn{
+	conn = &Conn{
 		ReadCloser:  fromServer,
 		WriteCloser: toServer,
 		remote:      NewAddr(network, address),
 	}
-
-	serverRW = &Conn{
+	srvconn = &Conn{
 		ReadCloser:  fromClient,
 		WriteCloser: toClient,
 		remote:      RandAddr(network),
 	}
-
 	return
 }
 
