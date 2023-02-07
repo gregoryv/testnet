@@ -7,9 +7,9 @@ import "github.com/gregoryv/testnet"
 
 ...
 
-client, server := testnet.Dial("tcp", "somehost:1234") 
+conn, srvconn := testnet.Dial("tcp", "somehost:1234")
 
-defer client.Close()
-defer server.Close()
+// closing one side closes the other
+defer conn.Close()
 ```
 
