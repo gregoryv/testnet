@@ -1,0 +1,5 @@
+github.com/eclipse/paho.golang v0.10.0 h1:oUGPjRwWcZQRgDD9wVDV7y7i7yBSxts3vcvcNJo8B4Q=
+github.com/gregoryv/asserter v0.4.2 h1:uVAXr67ZnAKk6v8+vZc75DXGxE+P7AYCHvCsA7lIDS8=
+github.com/gregoryv/mq v0.27.0 h1:v6NLC/L976GH8w6LUyLGtsgBpBkWxC5og4jYZtYnfKk=
+github.com/gregoryv/mq v0.27.0/go.mod h1:fLUZihmPqEDHepCnQheGWnjUtM/0FYA4hxiwC1fAdLU=
+github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
