@@ -8,7 +8,7 @@ import (
 	"net"
 )
 
-// NewMemConn returns client and server side connections. The arguments
+// Dial returns client and server side connections. The arguments
 // are only used to fullfill the net.Addr
 func Dial(network, address string) (clientRW *Conn, serverRW *Conn) {
 	fromServer, toClient := io.Pipe()
