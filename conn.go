@@ -34,9 +34,11 @@ type Conn struct {
 	remote *Addr
 }
 
-func (c *Conn) Close() {
-	c.ReadCloser.Close()
-	c.WriteCloser.Close()
+func (c *Conn) Close() error {
+	if err := c.ReadCloser.Close(); err != nil {
+		return err
+	}
+	return c.WriteCloser.Close()
 }
 
 func (c *Conn) RemoteAddr() net.Addr {

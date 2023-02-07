@@ -3,6 +3,10 @@
 This project adheres to semantic versioning and all major changes will
 be noted in this file.
 
+## [unreleased]
+
+- Adapt Close to match io.Closer
+
 ## [0.1.2] 2023-02-07
 
 - Fix Close; closing one side closes the other
