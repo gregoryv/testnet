@@ -1,4 +1,4 @@
-testnet - In memory network connection for testing
+[gregoryv/testnet](https://pkg.go.dev/github.com/gregoryv/testnet) - In memory network connection for testing
 
 ## Quick start
 
@@ -7,8 +7,9 @@ import "github.com/gregoryv/testnet"
 
 ...
 
-clientIO, serverIO := testnet.Dial("tcp", "somehost:1234") // the values do not matter
+client, server := testnet.Dial("tcp", "somehost:1234") 
 
-defer clientIO.Close()
+defer client.Close()
+defer server.Close()
 ```
 
