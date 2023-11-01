@@ -49,3 +49,10 @@ func TestClose(t *testing.T) {
 		t.Error("server still open even if client side closed")
 	}
 }
+
+func TestAddr_Network(t *testing.T) {
+	var a Addr
+	if v :=a.Network(); v != "" {
+		t.Error("Network", v)
+	}
+}
