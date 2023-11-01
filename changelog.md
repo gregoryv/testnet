@@ -3,8 +3,9 @@
 This project adheres to semantic versioning and all major changes will
 be noted in this file.
 
-## [unreleased]
+## [0.2.0] 2023-11-01
 
+- Hide Conn.ReadCloser and Conn.WriteCloser
 - go mod tidy
 
 ## [0.1.3] 2023-02-07

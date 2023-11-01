@@ -15,30 +15,36 @@ func Dial(network, address string) (conn *Conn, srvconn *Conn) {
 	fromClient, toServer := io.Pipe()
 
 	conn = &Conn{
-		ReadCloser:  fromServer,
-		WriteCloser: toServer,
-		remote:      NewAddr(network, address),
+		r:      fromServer,
+		w:      toServer,
+		remote: NewAddr(network, address),
 	}
 	srvconn = &Conn{
-		ReadCloser:  fromClient,
-		WriteCloser: toClient,
-		remote:      RandAddr(network),
+		r:      fromClient,
+		w:      toClient,
+		remote: RandAddr(network),
 	}
 	return
 }
 
 type Conn struct {
-	io.ReadCloser
-	io.WriteCloser
+	r io.ReadCloser
+	w io.WriteCloser
 
 	remote *Addr
 }
 
+func (c *Conn) Read(p []byte) (int, error) {
+	return c.r.Read(p)
+}
+
+func (c *Conn) Write(p []byte) (int, error) {
+	return c.w.Write(p)
+}
+
 func (c *Conn) Close() error {
-	if err := c.ReadCloser.Close(); err != nil {
-		return err
-	}
-	return c.WriteCloser.Close()
+	_ = c.r.Close()
+	return c.w.Close()
 }
 
 func (c *Conn) RemoteAddr() net.Addr {

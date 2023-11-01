@@ -52,7 +52,7 @@ func TestClose(t *testing.T) {
 
 func TestAddr_Network(t *testing.T) {
 	var a Addr
-	if v :=a.Network(); v != "" {
+	if v := a.Network(); v != "" {
 		t.Error("Network", v)
 	}
 }
